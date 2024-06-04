@@ -1,0 +1,12 @@
+<h1 style="text-align: center;">Percentage of Liked Posts</h1>
+
+<div align="center" style="margin-top: 10%; position: relative;">
+    <circle-progress [percent]="progressPercentage" [space]="-10" [radius]="100" [outerStrokeWidth]="10"
+      [innerStrokeWidth]="10" [outerStrokeColor]="'#4882c2'" [innerStrokeColor]="'#e7e8ea'" [animation]="true"
+      [animationDuration]="1000"></circle-progress>
+      <br> <br> <br> <br> 
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px;">
+      {{ progressPercentage }}%
+    </div>
+  </div>
+  

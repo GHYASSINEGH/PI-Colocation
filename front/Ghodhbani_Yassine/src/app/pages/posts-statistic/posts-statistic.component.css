@@ -1,0 +1,53 @@
+.circle-progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: lightgray;
+  }
+  
+  .mask, .fill {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .mask {
+    clip: rect(0px, 75px, 150px, 0px);
+  }
+  
+  .fill {
+    background-color: green;
+    clip: rect(0px, 75px, 150px, 0px);
+    transform: rotate(0deg);
+  }
+  
+  .mask.full, .mask.full .fill {
+    clip: rect(auto, auto, auto, auto);
+  }
+  
+  .mask.over50 .fill {
+    clip: rect(0px, 150px, 150px, 75px);
+  }
+  
+  .inside-circle {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: white;
+    border-radius: 50%;
+    top: 15%;
+    left: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  

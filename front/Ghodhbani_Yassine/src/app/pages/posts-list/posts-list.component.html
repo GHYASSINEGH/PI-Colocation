@@ -1,0 +1,261 @@
+<div class="header">
+    <nav class="icon1">
+        <div><img class="img1" src="assets/images/Tobybook.jpg" /></div>
+        <input class="input1" type="text" #searchInput (keyup.enter)="searchAnnouncements(searchInput.value)"
+            placeholder="Search Posts" />
+
+    </nav>
+
+    <nav class="icon">
+        <p class="home"><img class="mid" id="mide" src="assets/images/Home.jpg" /></p>
+        <p class="p"><img class="mid" src="assets/images/Watch.jpg" /></p>
+        <p class="p"><img class="mid" src="assets/images/Groups.jpg" /></p>
+        <p class="p"><img class="mid" src="assets/images/Gaming.png" /></p>
+    </nav>
+
+    <nav class="black">
+        <div class="black1"><img [src]="users.photoUrl" alt="Profile Photo" class="profile" /><span id="prof">
+                {{users.fullName}}</span></div>
+        <div class="black2"><img class="blacke" src="assets/images/black_plus.jpg" /></div>
+        <div class="black3"><img class="blacke" src="assets/images/black_messenger1.jpg" /></div>
+        <div class="black4"><img class="blacke" id="blacken" src="assets/images/black_notification1.jpg" /></div>
+        <div class="black5"><img class="blacke" src="assets/images/arrow_drop_down.png" /></div>
+    </nav>
+</div>
+
+<div class="header2">
+    <nav class="icon3">
+        <div><img class="img1" src="assets/images/Tobybook.jpg" /></div>
+        <div><input class="input3" type="text" onfocus="hideIcon(this);" /></div>
+    </nav>
+
+    <nav class="icon5">
+        <p class="home1"><img class="mid1" id="mid1" src="assets/images/Home.jpg" /></p>
+        <p class="p"><img id="mid1" src="assets/images/Watch.jpg" /></p>
+        <p class="p"><img id="mid1" src="assets/images/Groups.jpg" /></p>
+        <p class="p"><img id="mid1" src="assets/images/Gaming.png" /></p>
+    </nav>
+
+    <nav class="black">
+        <div class="black1"><img class="profile" src="assets/images/profile.jpg" /><span id="prof"> Enoch</span></div>
+        <div class="black2"><img class="blacke" src="assets/images/black_plus.jpg" /></div>
+        <div class="black3"><img class="blacke" src="assets/images/black_messenger1.jpg" /></div>
+        <div class="black4"><img class="blacke" id="blacken" src="assets/images/black_notification1.jpg" /></div>
+        <div class="black5"><img class="blacke" src="assets/images/arrow_drop_down.png" /></div>
+    </nav>
+</div>
+
+<div class="left">
+    <div class="div" id="div-id">
+        <div class="div" id="covid"><img class="side" src="assets/images/profile.jpg" /><span id="side"> Enoch
+                Toby</span></div>
+        <div class="div" id="covid"><img class="side" src="assets/images/COVID-19_information_center.jpg" /><span
+                id="side"> Help</span></div>
+        <div class="div" id="covid"><img class="side" src="assets/images/messenger.jpg" /><span id="side">
+                Messenger</span></div>
+        <div class="div" id="covid"><img class="side" src="assets/images/fundraisers.jpg" /><span id="side">
+                Fundraisers</span></div>
+        <div class="div" id="covid"><img class="side" src="assets/images/Groups.jpg" /><span id="side"> Groups</span>
+        </div>
+        <div class="div" id="covid"><img class="side" src="assets/images/Watch.jpg" /><span id="side"> Videos</span>
+        </div>
+        <div class="div" id="covid"><img class="side" src="assets/images/events.jpg" /><span id="side"> Events</span>
+        </div>
+        <div class="div" id="covid"><img class="side" src="assets/images/friend-lists.jpg" /><span id="side"> Friend
+                Lists</span></div>
+        <div class="div" id="covid"><img class="side" src="assets/images/saved.jpg" /><span id="side"> Saved</span>
+        </div>
+        <div class="see-more">See More ></div>
+    </div>
+    <hr>
+
+    <aside class="navigate">
+        <nav class="nav">
+            <p> Privacy</p>
+            <p> · Terms</p>
+            <p> · Advertising</p>
+            <p> · Ad Choice</p>
+        </nav>
+
+        <nav class="nav">
+            <p>Cookies</p>
+            <p>· More </p>
+            <p>· Toby's Facebook © 2024 ·</p>
+        </nav>
+    </aside>
+</div>
+
+<main class="main">
+    <article id="main">
+        <article class="article1">
+            <div class="row2" id="row2">
+                <div class="row2"><img class="profile" src="assets/images/profile.jpg" /></div>
+                <div><input class="input2" type="textarea" placeholder="What's on your mind, Enoch?" /></div>
+            </div>
+
+            <div class="up">
+                <p routerLink="/posts/add/{{users.idUser}}" class="up1"><img class="blacke" src="assets/images/white_plus.jpg" />Add Post
+                </p>
+                <p class="up1"><img id="up" src="assets/images/Photo.png" />
+                    <button (click)="exportexcel()" >
+                    Report Posts
+                  </button></p>
+                <p  routerLink="/posts/statistics" class="up1"><img id="up" src="assets/images/Photo.png" />Post Statics</p>
+            </div>
+        </article>
+
+        
+         
+          
+         
+          <table class="table table-bordered" id="table-data" hidden="true">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>location</th>
+                <th>likes</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let announcement of announcements">
+                <td>{{announcement.title }}</td>
+                <td>{{ announcement.content }}</td>
+                <td>{{announcement.location}}</td>
+                <td>{{ announcement.likes }}</td>
+             
+              </tr>
+            </tbody>
+          </table>
+
+
+
+
+        
+        <article class="article2" *ngFor="let announcement of announcements" >
+            <div class="post">
+                <div><img [src]="announcement.user.photoUrl" class="profile"  /></div>
+
+                <aside id="aside0">
+                    <div class="donald">{{announcement.user.fullName}}</div>
+                    <div class="notification">
+                        <div class="hour">{{announcement.posteDate}}</div>
+                        <div><img id="notify" src="assets/images/notification.jpg" /></div>
+                    </div>
+                </aside>
+                <div class="updated">make new post</div>
+                <button class="btn btn-sm btn-danger" (click)="deleteAnnouncement(announcement.id)"><i
+                        class="bi bi-trash"></i></button>
+                        <button class="btn btn-sm btn-info" routerLink="/posts/update/{{announcement.id}}"  >
+                           
+                            <i class="bi bi-pencil-fill"></i> 
+                          </button> 
+                
+
+            </div>
+            <h2>{{ announcement.title }}</h2>
+            <p>{{ announcement.content }}</p>
+            <div class="pix"><img [src]="announcement.photoUrl" class="trump" /></div>
+            <div class="result">
+                <div class="border1">
+                    <div class="well">
+                        <div><img id="like1" src="assets/images/like.jpg" /><span
+                                class="num1">{{announcement.likes}}</span></div>
+                        <div class="num2"> Comments</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action">
+                <div class="border">
+                    <div class="like" (click)="likeAnnouncement(announcement.id, userId)">
+                        <img id="like" src="assets/images/like.jpg" /><span id="span"> Like</span>
+                    </div>
+                    <div class="comment" (click)="getPostComments(announcement.id)">
+                        <img id="comment" src="assets/images/comment.jpg" /><span id="span"> Comment</span>
+                    </div>
+                    <div class="share">
+                        <img id="share" src="assets/images/share.jpg" /><span id="span"> Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="replies">
+
+                <div *ngFor="let comment of comments[announcement.id]" class="comment-container">
+
+                    <aside class="aside2">
+                        <div class="donald1"><img [src]="comment.user.photoUrl" alt="Profile Photo" class="profile" />{{
+                            comment.user.fullName}}</div>
+                        <div class="updated1">{{ comment.content }}</div>
+                        <div class="react">
+                            <div class="dot">Like</div>
+                            <div class="dot0">·</div>
+                            <div class="dot">Reply</div>
+                            <div class="dot0">·</div>
+                            <div class="dot1">16h</div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div id="row3">
+                <div class="row3">
+                    <div class="row3"><img class="profile" src="assets/images/profile.jpg" /></div>
+                    <div>
+                        <input class="input4" type="textarea" placeholder="Write a comment..." [(ngModel)]="newComment"
+                            (keydown.enter)="addComment(announcement.id)" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="divp">Press Enter to post</div>
+        </article> <br>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <hr>
+
+        <nav class="nav1">
+            <p> Privacy</p>
+            <p> · Terms</p>
+            <p> · Advertising</p>
+            <p> · Ad Choice</p>
+        </nav>
+
+        <nav class="nav1">
+            <p>Cookies</p>
+            <p>· More </p>
+            <p>· Toby's Facebook © 2024 ·</p>
+        </nav>
+
+    </article>
+</main>
+
+<div class="right">
+    <div class="rite" id="rite">
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof03.jpg" /><span id="side"> Toyosi
+                Victor</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof02.jpg" /><span id="side"> Faith
+                Blessing</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof05.jpg" /><span id="side"> Abraham
+                Victory</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof06.jpg" /><span id="side"> Wood
+                Daniel</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof07.jpg" /><span id="side"> Happiness
+                Stephen</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof08.jpg" /><span id="side"> Samuel
+                Deborah</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof05.jpg" /><span id="side"> Livingstone
+                Faithfulness </span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof09.jpg" /><span id="side"> Chadwick
+                Mary</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof05.jpg" /><span id="side"> Paul
+                Mark</span></div>
+        <div class="wright" id="wright"><img class="side" src="assets/images/prof10.jpg" /><span id="side"> Abraham
+                Priscilla</span></div> <br><br><br><br><br>
+    </div>
+</div>
+
+<div class="white"><img id="white" src="assets/images/white_plus.jpg" /></div>
